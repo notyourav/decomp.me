@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +75,10 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'coreapp.error.custom_exception_handler',
+}
+
+GRAPHENE = {
+    'SCHEMA': 'coreapp.graphql.schema.schema'
 }
 
 ROOT_URLCONF = 'decompme.urls'

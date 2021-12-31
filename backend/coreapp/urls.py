@@ -1,6 +1,7 @@
 from django.urls import path
 
-from coreapp.views import compilers, scratch, user
+from .views import compilers, scratch, user
+from .graphql.urls import urlpatterns as graphql_urls
 
 urlpatterns = [
     path('compilers', compilers.CompilersDetail.as_view(), name='compilers'),
@@ -12,4 +13,5 @@ urlpatterns = [
     path('scratch/<slug:slug>/export', scratch.ScratchExport.as_view(), name='scratch-export'),
     path('user', user.CurrentUser.as_view(), name="current-user"),
     path('users/<slug:username>', user.user, name="user-detail"),
+    *graphql_urls,
 ]
